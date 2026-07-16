@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: lankamate-api
+
+  profiles:
+    active: local
+
+  # PHASE 0 ONLY: in-memory H2 so the app boots with zero DB setup.
+  # Replaced by real PostgreSQL + PostGIS in Phase 2.
+  datasource:
+    url: jdbc:h2:mem:lankamate;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: when-authorized
+
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+logging:
+  level:
+    lk.lankamate.api: DEBUG
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+logging:
+  level:
+    lk.lankamate.api: INFO
+    org.springframework.security: WARN
