@@ -60,6 +60,20 @@ public class AuthService {
         return buildAuthResponse(user);
     }
 
+    @Transactional(readOnly = true)
+    public AuthResponse refresh(String refreshToken) {
+        if (!jwtService.isTokenValid(refreshToken)) {
+            throw new BadRequestException("Invalid or expired refresh token");
+        }
+
+        java.util.UUID userId = java.util.UUID.fromString(
+                jwtService.extractUserId(refreshToken));
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new BadRequestException("Invalid refresh token"));
+
+        return buildAuthResponse(user);
+    }
+
     private AuthResponse buildAuthResponse(User user) {
         String accessToken = jwtService.generateAccessToken(user);
         String refreshToken = jwtService.generateRefreshToken(user);

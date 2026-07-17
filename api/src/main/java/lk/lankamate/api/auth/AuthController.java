@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import lk.lankamate.api.auth.dto.RefreshRequest;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -35,5 +36,11 @@ public class AuthController {
     public ApiResponse<AuthResponse> login(@Valid @RequestBody LoginRequest request) {
         AuthResponse result = authService.login(request);
         return ApiResponse.ok("Login successful", result);
+    }
+
+    @PostMapping("/refresh")
+    public ApiResponse<AuthResponse> refresh(@Valid @RequestBody RefreshRequest request) {
+        AuthResponse result = authService.refresh(request.refreshToken());
+        return ApiResponse.ok("Token refreshed", result);
     }
 }

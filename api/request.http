@@ -48,3 +48,20 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktY
 ### Generate AI itinerary (this calls Gemini — may take 10-30 seconds!)
 POST http://localhost:8080/api/v1/trips/581c0495-1d21-4344-8df9-1f906a0520cf/itinerary/generate
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktYTY0NC1lYTViMTM0YzI3MjYiLCJpc3MiOiJsYW5rYW1hdGUiLCJlbWFpbCI6ImthdmVlc2hhQHRlc3QuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3ODQyNzk2OTUsImV4cCI6MTc4NDI4MDU5NX0.WfXY2ZnhZaOa6XUhiqlFxBq_k5o9Qpx7rwCTVgiLcKjAHzDyRgeH2SDn6ef-q2BJHXEKtgxUCygyFFbokDN8gw
+
+### 1. Login to get a refresh token
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "kaveesha@test.com",
+  "password": "password123"
+}
+
+### 2. Refresh — paste the refreshToken from step 1
+POST http://localhost:8080/api/v1/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktYTY0NC1lYTViMTM0YzI3MjYiLCJpc3MiOiJsYW5rYW1hdGUiLCJlbWFpbCI6ImthdmVlc2hhQHRlc3QuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3ODQyOTEzMDQsImV4cCI6MTc4NTUwMDkwNH0.2qkwVktXJcGMVnduV2bRQe6m-17I5KHUGwiEASToU8gi90rK7otZk0dXi4BY_96S1ymyRNzxA7ihX15GxTZXvw"
+}
