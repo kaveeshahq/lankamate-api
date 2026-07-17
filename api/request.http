@@ -1,0 +1,36 @@
+### 1. Login first
+POST http://localhost:8080/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "kaveesha@test.com",
+  "password": "password123"
+}
+
+### 2. Create a trip — paste the token from step 1's response
+POST http://localhost:8080/api/v1/trips
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktYTY0NC1lYTViMTM0YzI3MjYiLCJpc3MiOiJsYW5rYW1hdGUiLCJyb2xlIjoiVVNFUiIsImVtYWlsIjoia2F2ZWVzaGFAdGVzdC5jb20iLCJpYXQiOjE3ODQyNzE0MTEsImV4cCI6MTc4NDI3MjMxMX0.tqxYIg3FCbh3VgrEWPXXuMCoCp1b61Q3GIl-YT9AZEA2UsKedwS4ezIZd_uv8Vpa5tGSvSQmaG5ERMfEc2UV3w
+
+{
+  "title": "My Sri Lanka Adventure",
+  "startDate": "2026-08-01",
+  "endDate": "2026-08-07",
+  "baseLocationName": "Colombo",
+  "totalBudget": 1500,
+  "currency": "USD",
+  "travelStyle": "BALANCED",
+  "interests": ["BEACHES", "CULTURE", "FOOD"]
+}
+
+### List my trips
+GET http://localhost:8080/api/v1/trips
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktYTY0NC1lYTViMTM0YzI3MjYiLCJpc3MiOiJsYW5rYW1hdGUiLCJyb2xlIjoiVVNFUiIsImVtYWlsIjoia2F2ZWVzaGFAdGVzdC5jb20iLCJpYXQiOjE3ODQyNzE0MTEsImV4cCI6MTc4NDI3MjMxMX0.tqxYIg3FCbh3VgrEWPXXuMCoCp1b61Q3GIl-YT9AZEA2UsKedwS4ezIZd_uv8Vpa5tGSvSQmaG5ERMfEc2UV3w
+
+### Get one trip (use the id from create response)
+GET http://localhost:8080/api/v1/trips/581c0495-1d21-4344-8df9-1f906a0520cf
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktYTY0NC1lYTViMTM0YzI3MjYiLCJpc3MiOiJsYW5rYW1hdGUiLCJyb2xlIjoiVVNFUiIsImVtYWlsIjoia2F2ZWVzaGFAdGVzdC5jb20iLCJpYXQiOjE3ODQyNzE0MTEsImV4cCI6MTc4NDI3MjMxMX0.tqxYIg3FCbh3VgrEWPXXuMCoCp1b61Q3GIl-YT9AZEA2UsKedwS4ezIZd_uv8Vpa5tGSvSQmaG5ERMfEc2UV3w
+
+### Ownership test — should return 404 (random id you don't own)
+GET http://localhost:8080/api/v1/trips/00000000-0000-0000-0000-000000000000
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktYTY0NC1lYTViMTM0YzI3MjYiLCJpc3MiOiJsYW5rYW1hdGUiLCJyb2xlIjoiVVNFUiIsImVtYWlsIjoia2F2ZWVzaGFAdGVzdC5jb20iLCJpYXQiOjE3ODQyNzE0MTEsImV4cCI6MTc4NDI3MjMxMX0.tqxYIg3FCbh3VgrEWPXXuMCoCp1b61Q3GIl-YT9AZEA2UsKedwS4ezIZd_uv8Vpa5tGSvSQmaG5ERMfEc2UV3w
