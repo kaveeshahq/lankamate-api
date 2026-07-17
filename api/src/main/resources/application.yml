@@ -13,8 +13,6 @@ spring:
 
   jpa:
     hibernate:
-      # 'update' is fine for early dev. In Phase 2 proper we switch to Flyway
-      # migrations and set this to 'validate' so the schema is version-controlled.
       ddl-auto: update
     open-in-view: false
     properties:
@@ -32,6 +30,13 @@ management:
   endpoint:
     health:
       show-details: when-authorized
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:local-dev-secret-change-in-prod-must-be-at-least-256-bits-long-000000}
+    access-token-expiration-ms: 900000
+    refresh-token-expiration-ms: 1209600000
+    issuer: lankamate
 
 ---
 spring:
