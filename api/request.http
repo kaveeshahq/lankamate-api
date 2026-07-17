@@ -44,3 +44,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktY
 {
   "prompt": "In one sentence, what is the best time to visit Sri Lanka?"
 }
+
+### Generate AI itinerary (this calls Gemini — may take 10-30 seconds!)
+POST http://localhost:8080/api/v1/trips/581c0495-1d21-4344-8df9-1f906a0520cf/itinerary/generate
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktYTY0NC1lYTViMTM0YzI3MjYiLCJpc3MiOiJsYW5rYW1hdGUiLCJlbWFpbCI6ImthdmVlc2hhQHRlc3QuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3ODQyNzk2OTUsImV4cCI6MTc4NDI4MDU5NX0.WfXY2ZnhZaOa6XUhiqlFxBq_k5o9Qpx7rwCTVgiLcKjAHzDyRgeH2SDn6ef-q2BJHXEKtgxUCygyFFbokDN8gw
