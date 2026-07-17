@@ -65,3 +65,12 @@ Content-Type: application/json
 {
   "refreshToken": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktYTY0NC1lYTViMTM0YzI3MjYiLCJpc3MiOiJsYW5rYW1hdGUiLCJlbWFpbCI6ImthdmVlc2hhQHRlc3QuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3ODQyOTEzMDQsImV4cCI6MTc4NTUwMDkwNH0.2qkwVktXJcGMVnduV2bRQe6m-17I5KHUGwiEASToU8gi90rK7otZk0dXi4BY_96S1ymyRNzxA7ihX15GxTZXvw"
 }
+
+### Send a chat message
+POST http://localhost:8080/api/v1/chat
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktYTY0NC1lYTViMTM0YzI3MjYiLCJpc3MiOiJsYW5rYW1hdGUiLCJlbWFpbCI6ImthdmVlc2hhQHRlc3QuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE3ODQyOTYzMzAsImV4cCI6MTc4NDI5NzIzMH0.Q3mVgAdOqWfOczsNAtHngep2k3cwZmkdJYm3Z4nYopAxSAPiop2-sbMWk9MCW8B-UZo2qlKFR3C_Th3NVO1rzw
+
+{
+  "message": "What should I do in Ella if it rains?"
+}
