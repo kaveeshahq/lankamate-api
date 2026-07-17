@@ -34,3 +34,13 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktY
 ### Ownership test — should return 404 (random id you don't own)
 GET http://localhost:8080/api/v1/trips/00000000-0000-0000-0000-000000000000
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktYTY0NC1lYTViMTM0YzI3MjYiLCJpc3MiOiJsYW5rYW1hdGUiLCJyb2xlIjoiVVNFUiIsImVtYWlsIjoia2F2ZWVzaGFAdGVzdC5jb20iLCJpYXQiOjE3ODQyNzE0MTEsImV4cCI6MTc4NDI3MjMxMX0.tqxYIg3FCbh3VgrEWPXXuMCoCp1b61Q3GIl-YT9AZEA2UsKedwS4ezIZd_uv8Vpa5tGSvSQmaG5ERMfEc2UV3w
+
+### AI ping — talk to Gemini
+### AI ping — talk to Gemini
+POST http://localhost:8080/api/v1/ai/ping
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJjNWU2YTBkZC04ZWE1LTQwMDktYTY0NC1lYTViMTM0YzI3MjYiLCJpc3MiOiJsYW5rYW1hdGUiLCJyb2xlIjoiVVNFUiIsImVtYWlsIjoia2F2ZWVzaGFAdGVzdC5jb20iLCJpYXQiOjE3ODQyNzQwNzAsImV4cCI6MTc4NDI3NDk3MH0.diroyCxlDNAmLYpf_rYDGrZsbWS9OaiDh25Cs6peCw1fMqDnursK029qZXrlbNi5U5a2TiQpEM7yYYp_JnXCfg
+
+{
+  "prompt": "In one sentence, what is the best time to visit Sri Lanka?"
+}

@@ -1,16 +1,15 @@
 spring:
+  config:
+    import: optional:file:.env[.properties]
   application:
     name: lankamate-api
-
   profiles:
     active: local
-
   datasource:
     url: ${DB_URL:jdbc:postgresql://localhost:5433/lankamate}
     username: ${DB_USERNAME:lankamate}
     password: ${DB_PASSWORD:lankamate}
     driver-class-name: org.postgresql.Driver
-
   jpa:
     hibernate:
       ddl-auto: update
@@ -37,6 +36,12 @@ app:
     access-token-expiration-ms: 900000
     refresh-token-expiration-ms: 1209600000
     issuer: lankamate
+  ai:
+    provider: gemini
+    gemini:
+      api-key: ${GEMINI_API_KEY:}
+      base-url: https://generativelanguage.googleapis.com/v1beta
+      model: gemini-2.5-flash
 
 ---
 spring:
